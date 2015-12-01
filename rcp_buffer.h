@@ -19,6 +19,10 @@ struct rcp_buffer{
 void rcp_buffer_init(struct rcp_buffer *buffer, size_t len);
 void rcp_buffer_deinit(struct rcp_buffer *buffer);
 
+//Use externaly allocated memory block. Buffer must be non-inited state.
+void rcp_buffer_set_memory_block(
+		struct rcp_buffer *buffer,  void* mem, size_t len);
+
 /////
 //Sanity check(For debug)
 //Print error message into STDOUT when something wrong.

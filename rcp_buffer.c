@@ -16,6 +16,16 @@ void rcp_buffer_deinit(struct rcp_buffer *buffer)
 	free(buffer->front);
 }
 
+void rcp_buffer_set_memory_block(
+		struct rcp_buffer *buffer,  void* mem, size_t len)
+{
+
+	buffer->front = mem;
+	buffer->back = buffer->front + len;
+	buffer->begin = buffer->front;
+	buffer->end = buffer->front;
+}
+
 void rcp_buffer_verify(struct rcp_buffer *buffer)
 {
 	if (buffer->end > buffer->back){
